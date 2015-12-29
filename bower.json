@@ -1,0 +1,14 @@
+{
+  "name": "inline_file_upload",
+  "authors": [
+    "Adam Becker <adam@dobt.co>"
+  ],
+  "main": "index.coffee",
+  "license": "MIT",
+  "main": [
+    "dist/inline_file_upload.js"
+  ],
+  "dependencies": {
+    "jquery-form": "*"
+  }
+}
