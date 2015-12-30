@@ -56,7 +56,7 @@
       """)
 
       $oldInput = @$input
-      @$input = $oldInput.clone().hide().val('').insertBefore($oldInput)
+      @$input = $oldInput.clone().val('').insertBefore($oldInput)
       @_bindInputChange()
       $oldInput.appendTo(form)
 
