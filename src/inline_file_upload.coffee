@@ -50,7 +50,7 @@
 
     _createTemporaryForm: ->
       form = $("""
-        <form action='#{@options.action}' method='post' style='display:inline'>
+        <form action='#{@options.action}' method='post' style='position:fixed;left:-9999px;'>
           <input type='hidden' name='_method' value='#{@options.method}' />
         </form>
       """)
