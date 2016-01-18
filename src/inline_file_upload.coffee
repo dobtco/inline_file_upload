@@ -6,6 +6,7 @@
       action: undefined
       method: undefined
       additionalParams: {}
+      ajaxOpts: {}
       # start: (data) ->
       # progress: (data) ->
       # complete: (data) ->
@@ -27,7 +28,7 @@
     _ajaxUpload: ->
       $tmpForm = @_createTemporaryForm()
 
-      $tmpForm.ajaxSubmit
+      $tmpForm.ajaxSubmit($.extend({
         dataType: 'json'
         data: @_baseParams()
         uploadProgress: (_, __, ___, percentComplete) =>
@@ -47,6 +48,7 @@
           cbData = { xhr: xhr }
           @options.complete?(cbData)
           @$input.trigger('inline_file_upload:complete', cbData)
+      }, @options.ajaxOpts))
 
     _createTemporaryForm: ->
       form = $("""

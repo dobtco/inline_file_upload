@@ -7,7 +7,8 @@ var slice = [].slice;
       name: 'file',
       action: void 0,
       method: void 0,
-      additionalParams: {}
+      additionalParams: {},
+      ajaxOpts: {}
     };
 
     function InlineFileUpload($input, options) {
@@ -29,7 +30,7 @@ var slice = [].slice;
     InlineFileUpload.prototype._ajaxUpload = function() {
       var $tmpForm;
       $tmpForm = this._createTemporaryForm();
-      return $tmpForm.ajaxSubmit({
+      return $tmpForm.ajaxSubmit($.extend({
         dataType: 'json',
         data: this._baseParams(),
         uploadProgress: (function(_this) {
@@ -81,7 +82,7 @@ var slice = [].slice;
             return _this.$input.trigger('inline_file_upload:complete', cbData);
           };
         })(this)
-      });
+      }, this.options.ajaxOpts));
     };
 
     InlineFileUpload.prototype._createTemporaryForm = function() {
